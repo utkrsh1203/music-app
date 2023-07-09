@@ -1,6 +1,6 @@
 client/.env
 server/.env
-server/config/serviceAccountKey.json
+# server/config/serviceAccountKey.json
 
 ### Node ###
 # Logs
