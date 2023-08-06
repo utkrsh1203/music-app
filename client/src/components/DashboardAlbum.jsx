@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useStateValue } from "../Context/StateProvider";
 
 import { motion } from "framer-motion";
-import { MdDelete } from "react-icons/md";
+// import { MdDelete } from "react-icons/md";
 import { actionType } from "../Context/reducer";
 import { getAllAlbums } from "../api";
 
@@ -16,8 +16,8 @@ const DashboardAlbum = () => {
     }
   }, []);
   return (
-    <div className="w-full p-4 flex items-center justify-center flex-col">
-      <div className="relative w-full gap-3  my-4 p-4 py-12 border border-gray-300 rounded-md flex flex-wrap justify-evenly">
+    <div className='w-full p-4 flex items-center justify-center flex-col'>
+      <div className='relative w-full gap-3  my-4 p-4 py-12 border border-gray-300 rounded-md flex flex-wrap justify-evenly'>
         {allAlbums &&
           allAlbums.map((data, index) => (
             <>
@@ -30,31 +30,31 @@ const DashboardAlbum = () => {
 };
 
 export const AlbumCard = ({ data, index }) => {
-  const [isDelete, setIsDelete] = useState(false);
+  // const [isDelete, setIsDelete] = useState(false);
   return (
     <motion.div
       initial={{ opacity: 0, translateX: -50 }}
       animate={{ opacity: 1, translateX: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
-      className="relative  overflow-hidden w-44 min-w-180 px-2 py-4 gap-3 cursor-pointer hover:shadow-xl hover:bg-card bg-gray-100 shadow-md rounded-lg flex flex-col items-center"
+      className='relative  overflow-hidden w-44 min-w-180 px-2 py-4 gap-3 cursor-pointer hover:shadow-xl hover:bg-card bg-gray-100 shadow-md rounded-lg flex flex-col items-center'
     >
       <img
         src={data?.imageURL}
-        className="w-full h-40 object-cover rounded-md"
-        alt=""
+        className='w-full h-40 object-cover rounded-md'
+        alt=''
       />
 
-      <p className="text-base text-textColor">{data.name}</p>
+      <p className='text-base text-textColor'>{data.name}</p>
 
-      <motion.i
+      {/* <motion.i
         className="absolute bottom-2 right-2"
         whileTap={{ scale: 0.75 }}
         onClick={() => setIsDelete(true)}
       >
         <MdDelete className=" text-gray-400 hover:text-red-400 text-xl cursor-pointer" />
-      </motion.i>
+      </motion.i> */}
 
-      {isDelete && (
+      {/* {isDelete && (
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -75,8 +75,8 @@ export const AlbumCard = ({ data, index }) => {
               <p className="text-headingColor text-sm">No</p>
             </div>
           </div>
-        </motion.div>
-      )}
+        </motion.div> */}
+      {/* )} */}
     </motion.div>
   );
 };

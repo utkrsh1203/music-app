@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
-import {
-  getAuth,
-  GoogleAuthProvider,
-  inMemoryPersistence,
-  signInWithPopup,
-} from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { app } from "./config/firebase.config";
 import { getAllSongs, validateUser } from "./api";
 import {
@@ -88,7 +83,7 @@ function App() {
           <Route path='/userProfile' element={<UserProfile />} />
         </Routes>
 
-        {isSongPlaying && (
+        {isSongPlaying && window.localStorage.auth === "true" && (
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}

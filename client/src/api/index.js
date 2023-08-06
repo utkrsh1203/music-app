@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:4000/";
+const baseURL = "https://music-app-sydz.onrender.com/";
 // const baseURL = "http://localhost:4000/";
 
 export const validateUser = async (token) => {
