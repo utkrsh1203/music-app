@@ -1,5 +1,4 @@
 const admin = require("../config/firebase.config");
-const song = require("../models/song");
 const user = require("../models/user");
 
 const router = require("express").Router();
@@ -24,21 +23,6 @@ router.get("/login", async (req, res) => {
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: error });
-  }
-});
-
-router.put("/favourites/:userId", async (req, res) => {
-  const filter = { _id: req.params.userId };
-  const songId = req.query;
-
-  try {
-    console.log(filter, songId);
-    const result = await user.updateOne(filter, {
-      $push: { favourites: songId },
-    });
-    res.status(200).send({ success: true, msg: "Song added to favourites" });
-  } catch (error) {
-    res.status(400).send({ success: false, msg: error });
   }
 });
 
@@ -97,23 +81,6 @@ router.delete("/delete/:userId", async (req, res) => {
     res.status(200).send({ success: true, msg: "Data Deleted" });
   } else {
     res.status(200).send({ success: false, msg: "Data Not Found" });
-  }
-});
-
-router.put("/removeFavourites/:userId", async (req, res) => {
-  const filter = { _id: req.params.userId };
-  const songId = req.query;
-
-  try {
-    console.log(filter, songId);
-    const result = await user.updateOne(filter, {
-      $pull: { favourites: songId },
-    });
-    res
-      .status(200)
-      .send({ success: true, msg: "Song removed from favourites" });
-  } catch (error) {
-    res.status(400).send({ success: false, msg: error });
   }
 });
 

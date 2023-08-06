@@ -19,17 +19,6 @@ const UserSchema = mongoose.Schema(
       required: true,
     },
 
-    email_verfied: {
-      type: Boolean,
-      required: true,
-    },
-
-    favourites: [
-      {
-        songId: String,
-      },
-    ],
-
     role: {
       type: String,
       required: true,

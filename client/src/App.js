@@ -30,6 +30,8 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true);
+    // After successfully sign in, we need to get information about the user
+    // This method is called whenever the user signs in
     firebaseAuth.onAuthStateChanged((userCred) => {
       if (userCred) {
         userCred.getIdToken().then((token) => {
@@ -80,7 +82,6 @@ function App() {
           <Route path='/login' element={<Login setAuth={setAuth} />} />
           <Route path='/*' element={<Home />} />
           <Route path='/dashboard/*' element={<Dashboard />} />
-          <Route path='/userProfile' element={<UserProfile />} />
         </Routes>
 
         {isSongPlaying && window.localStorage.auth === "true" && (

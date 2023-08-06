@@ -22,9 +22,7 @@ const DashboardArtist = () => {
       <div className='relative w-full gap-3  my-4 p-4 py-12 border border-gray-300 rounded-md flex flex-wrap justify-evenly'>
         {artists &&
           artists.map((data, index) => (
-            <>
-              <ArtistCard key={index} data={data} index={index} />
-            </>
+            <ArtistCard key={index} data={data} index={index} />
           ))}
       </div>
     </div>
@@ -47,12 +45,13 @@ export const ArtistCard = ({ data, index }) => {
 
       <p className='text-base text-textColor'>{data.name}</p>
       <div className='flex items-center gap-4'>
-        <a href={data.instagram} target='_blank'>
+        {/* <a href='instagram.com'> */}
+        <a href={"https://instagram.com/" + data.instagram} target='_blank'>
           <motion.i whileTap={{ scale: 0.75 }}>
             <IoLogoInstagram className='text-gray-500 hover:text-headingColor text-xl' />
           </motion.i>
         </a>
-        <a href={data.twitter} target='_blank'>
+        <a href={"https://twitter.com/" + data.twitter} target='_blank'>
           <motion.i whileTap={{ scale: 0.75 }}>
             <IoLogoTwitter className='text-gray-500 hover:text-headingColor text-xl' />
           </motion.i>

@@ -53,18 +53,18 @@ const DashboardUserCard = ({ data, index }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
-      className="relative w-full rounded-md flex items-center justify-between py-4 bg-lightOverlay cursor-pointer hover:bg-card hover:shadow-md"
+      className='relative w-full rounded-md flex items-center justify-between py-4 bg-lightOverlay cursor-pointer hover:bg-card hover:shadow-md'
     >
       {data._id !== user?.user._id && (
         <motion.div
           whileTap={{ scale: 0.75 }}
-          className="absolute left-4 w-8 h-8 rounded-md flex items-center justify-center bg-gray-200"
+          className='absolute left-4 w-8 h-8 rounded-md flex items-center justify-center bg-gray-200'
           onClick={() => deleteuser(data._id)}
         >
-          <MdDelete className="text-xl text-red-400 hover:text-red-500" />
+          <MdDelete className='text-xl text-red-400 hover:text-red-500' />
         </motion.div>
       )}
-      <div className="w-275 min-w-[160px] flex items-center justify-center">
+      <div className='w-275 min-w-[160px] flex items-center justify-center'>
         {/* prettier-ignore */}
         <img src={data.imageURL} alt="" className="w-10 h-10 object-cover rounded-md min-w-[40px] shadow-md"
         />
@@ -74,15 +74,13 @@ const DashboardUserCard = ({ data, index }) => {
       {/* prettier-ignore */}
       <p className="text-base text-textColor w-275 min-w-[160px] text-center">{data.email}</p>
       {/* prettier-ignore */}
-      <p className="text-base text-textColor w-275 min-w-[160px] text-center">{data.email_verfied ? 'True' : 'False'}</p>
-      {/* prettier-ignore */}
       <p className="text-base text-textColor w-275 min-w-[160px] text-center">{createdAt}</p>
-      <div className=" w-275 min-w-[160px] text-center flex items-center justify-center gap-6 relative">
-        <p className="text-base text-textColor"> {data.role}</p>
+      <div className=' w-275 min-w-[160px] text-center flex items-center justify-center gap-6 relative'>
+        <p className='text-base text-textColor'> {data.role}</p>
         {data._id !== user?.user._id && (
           <motion.p
             whileTap={{ scale: 0.75 }}
-            className="text-[10px]  font-semibold text-textColor px-1 bg-purple-200 rounded-sm hover:shadow-md"
+            className='text-[10px]  font-semibold text-textColor px-1 bg-purple-200 rounded-sm hover:shadow-md'
             onClick={() => setIsUpdateRole(true)}
           >
             {data.role === "admin" ? "Member" : "Admin"}
@@ -93,16 +91,16 @@ const DashboardUserCard = ({ data, index }) => {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.5 }}
-            className="absolute z-10 top-6 right-4 rounded-md p-4 flex items-start flex-col gap-4 bg-white shadow-xl"
+            className='absolute z-10 top-6 right-4 rounded-md p-4 flex items-start flex-col gap-4 bg-white shadow-xl'
           >
-            <p className="text-textColor text-sm font-semibold">
+            <p className='text-textColor text-sm font-semibold'>
               Are you sure do u want to mark the user as{" "}
               <span>{data.role === "admin" ? "Member" : "Admin"}</span> ?
             </p>
-            <div className="flex items-center gap-4">
+            <div className='flex items-center gap-4'>
               <motion.button
                 whileTap={{ scale: 0.75 }}
-                className="outline-none border-none text-sm px-4 py-1 rounded-md bg-blue-200 text-black hover:shadow-md"
+                className='outline-none border-none text-sm px-4 py-1 rounded-md bg-blue-200 text-black hover:shadow-md'
                 onClick={() =>
                   UpdateUserRole(
                     data._id,
@@ -114,7 +112,7 @@ const DashboardUserCard = ({ data, index }) => {
               </motion.button>
               <motion.button
                 whileTap={{ scale: 0.75 }}
-                className="outline-none border-none text-sm px-4 py-1 rounded-md bg-gray-200 text-black hover:shadow-md"
+                className='outline-none border-none text-sm px-4 py-1 rounded-md bg-gray-200 text-black hover:shadow-md'
                 onClick={() => setIsUpdateRole(false)}
               >
                 No
@@ -125,7 +123,7 @@ const DashboardUserCard = ({ data, index }) => {
       </div>
 
       {isLoading && (
-        <div className="absolute inset-0 bg-card animate-pulse"></div>
+        <div className='absolute inset-0 bg-card animate-pulse'></div>
       )}
     </motion.div>
   );

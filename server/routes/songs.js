@@ -37,8 +37,6 @@ router.post("/save", async (req, res) => {
     songUrl: req.body.songUrl,
     album: req.body.album,
     artist: req.body.artist,
-    language: req.body.language,
-    category: req.body.category,
   });
   try {
     const savedSong = await newSong.save();
@@ -63,8 +61,6 @@ router.put("/update/:updateId", async (req, res) => {
         songUrl: req.body.songUrl,
         album: req.body.album,
         artist: req.body.artist,
-        language: req.body.language,
-        category: req.body.category,
       },
       options
     );
@@ -85,9 +81,5 @@ router.delete("/delete/:deleteId", async (req, res) => {
   }
 });
 
-router.get("/getFavouritesSongs", async (req, res) => {
-  const query = req.query.songId;
-  res.send(query);
-});
 
 module.exports = router;

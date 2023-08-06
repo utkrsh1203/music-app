@@ -23,8 +23,6 @@ import {
   saveNewSong,
 } from "../api";
 import { actionType } from "../Context/reducer";
-import { filterByLanguage, filters } from "../utils/supportfunctions";
-import { IoMusicalNote } from "react-icons/io5";
 import AlertSuccess from "./AlertSuccess";
 import AlertError from "./AlertError";
 
@@ -178,13 +176,13 @@ const DashboardNewSong = () => {
     }
   }, []);
 
-  const calculateTime = (sec) => {
-    const minutes = Math.floor(sec / 60);
-    const returnMin = minutes < 10 ? `0${minutes}` : `${minutes}`;
-    const seconds = Math.floor(sec % 60);
-    const returnSec = seconds < 10 ? `0${seconds}` : `${seconds}`;
-    return `${returnMin} : ${returnSec}`;
-  };
+  // const calculateTime = (sec) => {
+  //   const minutes = Math.floor(sec / 60);
+  //   const returnMin = minutes < 10 ? `0${minutes}` : `${minutes}`;
+  //   const seconds = Math.floor(sec % 60);
+  //   const returnSec = seconds < 10 ? `0${seconds}` : `${seconds}`;
+  //   return `${returnMin} : ${returnSec}`;
+  // };
 
   const deleteImageObject = (songURL, action) => {
     if (action === "image") {
@@ -264,8 +262,6 @@ const DashboardNewSong = () => {
           <div className='flex w-full justify-between flex-wrap items-center gap-4'>
             <FilterButtons filterData={artists} flag={"Artist"} />
             <FilterButtons filterData={allAlbums} flag={"Albums"} />
-            <FilterButtons filterData={filterByLanguage} flag={"Language"} />
-            <FilterButtons filterData={filters} flag={"Category"} />
           </div>
 
           <div className='flex items-center justify-between gap-2 w-full flex-wrap'>

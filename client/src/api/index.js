@@ -16,6 +16,15 @@ export const validateUser = async (token) => {
   }
 };
 
+export const getAllSongs = async () => {
+  try {
+    const res = await axios.get(`${baseURL}api/songs/getAll`);
+    return res.data;
+  } catch (error) {
+    return null;
+  }
+};
+
 export const getAllArtist = async () => {
   try {
     const res = await axios.get(`${baseURL}api/artists/getAll`);
@@ -34,28 +43,19 @@ export const getAllUsers = async () => {
   }
 };
 
-export const removeUser = async (userId) => {
-  try {
-    const res = axios.delete(`${baseURL}api/users/delete/${userId}`);
-    return res;
-  } catch (error) {
-    return null;
-  }
-};
-
-export const getAllSongs = async () => {
-  try {
-    const res = await axios.get(`${baseURL}api/songs/getAll`);
-    return res.data;
-  } catch (error) {
-    return null;
-  }
-};
-
 export const getAllAlbums = async () => {
   try {
     const res = await axios.get(`${baseURL}api/albums/getAll`);
     return res.data;
+  } catch (error) {
+    return null;
+  }
+};
+
+export const removeUser = async (userId) => {
+  try {
+    const res = axios.delete(`${baseURL}api/users/delete/${userId}`);
+    return res;
   } catch (error) {
     return null;
   }
